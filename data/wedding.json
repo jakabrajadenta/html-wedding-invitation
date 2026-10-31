@@ -8,7 +8,8 @@
     "credit": "Musik: Nocturne Op. 9 No. 2, F. Chopin, dimainkan oleh Frank Lévy (Musopen, domain publik)"
   },
   "opening": {
-    "tagline": "Minang × Sunda, satu cerita",
+    "place": "Kuranji, Lima Puluh Kota",
+    "tagline": "Dua hati, satu langkah",
     "basmalah": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "salam": "Assalamu'alaikum warahmatullahi wabarakatuh",
     "intro": "Dengan penuh syukur kepada Allah Subhanahu wa Ta'ala, kami ingin berbagi kabar bahagia dan mengundang Anda untuk hadir serta mendoakan hari pernikahan kami.",
@@ -19,9 +20,7 @@
     }
   },
   "couple": {
-    "heading": "Dua Budaya, Satu Cerita",
-    "intro": "Dari Ranah Minang dan Tanah Pasundan, kini melangkah bersama.",
-    "chip": "Minang × Sunda",
+    "intro": "Dengan restu kedua keluarga, kami memulai perjalanan baru bersama.",
     "bride": {
       "role": "The Bride",
       "nickname": "Elsha",
@@ -47,25 +46,26 @@
     {
       "name": "Akad Nikah",
       "note": "",
-      "start": "",
+      "start": "2027-09-22T09:00:00+07:00",
       "end": "",
-      "venue": "",
-      "address": "",
-      "mapsUrl": ""
+      "endLabel": "",
+      "venue": "Kediaman Mempelai Wanita",
+      "address": "Kuranji, dekat TK Harapan Kuranji, Desa Guguak VIII Koto, Kecamatan Guguak, Kabupaten Lima Puluh Kota, Sumatera Barat",
+      "mapsUrl": "https://maps.app.goo.gl/f9Qn7iwY9gY2nnvv5"
     },
     {
-      "name": "Resepsi",
-      "note": "",
-      "start": "",
+      "name": "Syukuran",
+      "note": "Intimate wedding bersama keluarga dan kerabat dekat.",
+      "start": "2027-09-22T11:00:00+07:00",
       "end": "",
-      "venue": "",
-      "address": "",
-      "mapsUrl": ""
+      "endLabel": "selesai",
+      "venue": "Kediaman Mempelai Wanita",
+      "address": "Kuranji, dekat TK Harapan Kuranji, Desa Guguak VIII Koto, Kecamatan Guguak, Kabupaten Lima Puluh Kota, Sumatera Barat",
+      "mapsUrl": "https://maps.app.goo.gl/f9Qn7iwY9gY2nnvv5"
     }
   ],
   "guestInfo": {
-    "kicker": "Info Tamu",
-    "title": "Biar Makin Berkesan",
+    "title": "Info Tamu",
     "items": [
       "Datang tepat waktu supaya tidak ketinggalan momen pentingnya.",
       "Berpakaian rapi dan sopan sesuai suasana acara.",
@@ -73,12 +73,23 @@
     ]
   },
   "rsvp": {
-    "whatsapp": "",
+    "whatsapp": "6282214687574",
     "intro": "Kabari kami ya, supaya tempat dan jamuan untuk Anda bisa kami siapkan dengan baik."
   },
   "gifts": {
     "intro": "Doa Anda adalah hadiah terbaik bagi kami. Bagi yang ingin memberikan tanda kasih, dapat melalui rekening berikut.",
-    "accounts": []
+    "accounts": [
+      {
+        "bank": "Bank Jago",
+        "number": "105205984088",
+        "holder": "Jaka Brajadenta"
+      },
+      {
+        "bank": "GoPay / ShopeePay / DANA",
+        "number": "082214687574",
+        "holder": "Jaka Brajadenta"
+      }
+    ]
   },
   "closing": {
     "prayer": {
@@ -88,6 +99,6 @@
     },
     "thanks": "Kehadiran dan doa Anda akan membuat hari kami semakin lengkap. Terima kasih banyak, sampai jumpa di hari bahagia kami!",
     "salam": "Wassalamu'alaikum warahmatullahi wabarakatuh",
-    "signature": "Dengan penuh cinta,"
+    "signature": "Kami yang berbahagia,"
   }
 }

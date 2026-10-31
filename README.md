@@ -4,14 +4,15 @@ Undangan pernikahan digital berbentuk website satu halaman (*single page*). Tamu
 
 **Link undangan:** https://jakabrajadenta.github.io/html-wedding-invitation/
 
-> Status: desain modern perpaduan Minang dan Sunda sudah tersedia. Tanggal, tempat, dan kontak masih menyusul.
+> Status: desain sudah tersedia. Tanggal dan lokasi masih sementara, kontak dan rekening masih menyusul.
 
 Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
 
 ## Mengubah isi undangan
 
 - Ubah isi undangan di `data/wedding.json`.
-- Selama `start` dan `end` pada `events` kosong, jadwal tampil sebagai "Menyusul" dan hitung mundur disembunyikan. Format isinya `2027-01-09T08:00:00+07:00`.
+- Selama `start` pada `events` kosong, jadwal tampil sebagai "Menyusul" dan hitung mundur disembunyikan. Format isinya `2027-09-22T09:00:00+07:00`.
+- `end` boleh kosong. Isi `endLabel` dengan `selesai` untuk menampilkan "11.00 WIB – selesai".
 - Bagian amplop digital baru tampil setelah `gifts.accounts` diisi.
 - Setelah isi final, ubah `DRAFT_MODE=true` menjadi `DRAFT_MODE=false` di `config/public.env` untuk menghilangkan label contoh.
 

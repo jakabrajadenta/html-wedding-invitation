@@ -57,11 +57,6 @@ function renderPeople(couple) {
   });
 }
 
-function renderMarquee(title, chip) {
-  const phrase = `${title} ✦ ${chip} ✦ `;
-  document.getElementById('marquee').textContent = phrase.repeat(8);
-}
-
 function formatDate(iso, timeZone) {
   return new Intl.DateTimeFormat('id-ID', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone,
@@ -79,21 +74,30 @@ function calendarDate(iso) {
 }
 
 function calendarUrl(event, title) {
+  // Acara tanpa jam selesai dicatat berdurasi dua jam di kalender.
+  const end = event.end || new Date(new Date(event.start).getTime() + 2 * 3600 * 1000).toISOString();
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: `${event.name} ${title}`,
-    dates: `${calendarDate(event.start)}/${calendarDate(event.end)}`,
+    dates: `${calendarDate(event.start)}/${calendarDate(end)}`,
     location: `${event.venue}, ${event.address}`,
   });
   return `https://calendar.google.com/calendar/render?${params}`;
 }
 
+// "09.00 WIB", "11.00 WIB – selesai", atau "08.00 – 10.00 WIB"
+function formatTimeRange(event, { timeZone, timeLabel }) {
+  const start = formatTime(event.start, timeZone);
+  if (event.end) return `${start} – ${formatTime(event.end, timeZone)} ${timeLabel}`;
+  return event.endLabel ? `${start} ${timeLabel} – ${event.endLabel}` : `${start} ${timeLabel}`;
+}
+
 function renderEvents(events, schedule, title) {
   const template = document.getElementById('event-template');
-  const { timeZone, timeLabel } = schedule;
+  const { timeZone } = schedule;
   const nodes = events.map((event) => {
     const node = template.content.cloneNode(true);
-    const hasSchedule = Boolean(event.start && event.end);
+    const hasSchedule = Boolean(event.start);
     const map = node.querySelector('.event-map');
     const calendar = node.querySelector('.event-calendar');
 
@@ -101,9 +105,8 @@ function renderEvents(events, schedule, title) {
     setOptionalText(node.querySelector('.event-note'), event.note);
     node.querySelector('.event-date').textContent =
       hasSchedule ? formatDate(event.start, timeZone) : PENDING_TEXT;
-    node.querySelector('.event-time').textContent = hasSchedule
-      ? `${formatTime(event.start, timeZone)} – ${formatTime(event.end, timeZone)} ${timeLabel}`
-      : PENDING_TEXT;
+    node.querySelector('.event-time').textContent =
+      hasSchedule ? formatTimeRange(event, schedule) : PENDING_TEXT;
     node.querySelector('.event-venue').textContent = event.venue || PENDING_TEXT;
     setOptionalText(node.querySelector('.event-address'), event.address);
     node.querySelector('.event-address-label').hidden = !event.address;
@@ -272,7 +275,7 @@ function setupReveal() {
     });
   }, { rootMargin: '0px 0px -5% 0px' });
 
-  document.querySelectorAll('.section > *').forEach((element) => {
+  document.querySelectorAll('.section > :not(.floral)').forEach((element) => {
     element.classList.add('reveal');
     observer.observe(element);
   });
@@ -313,7 +316,6 @@ async function init() {
 
     await bindText();
     renderPeople(data.couple);
-    renderMarquee(title, data.couple.chip);
     renderEvents(data.events, data.schedule, title);
     renderGuestInfo(data.guestInfo.items);
     renderGifts(data.gifts.accounts);

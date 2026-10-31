@@ -4,42 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#3d0b1a">
+  <meta name="theme-color" content="#6f0b0f">
   <title>Undangan Pernikahan</title>
-  <meta name="description" content="Undangan pernikahan online, perpaduan Minang dan Sunda.">
+  <meta name="description" content="Undangan pernikahan online.">
   <meta property="og:title" content="Undangan Pernikahan">
   <meta property="og:description" content="Dengan penuh syukur, kami mengundang Anda untuk hadir dan berbagi doa.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%233d0b1a'/%3E%3Cpath d='M5 8c2 8 6 12 11 12s9-4 11-12c0 10-3 16-11 18C8 24 5 18 5 8Z' fill='%23d6b36a'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%236f0b0f'/%3E%3Crect x='4' y='4' width='24' height='24' fill='none' stroke='%23dfc186'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23dfc186'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Marcellus&family=Allura&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="is-locked">
   <svg width="0" height="0" class="svg-defs" aria-hidden="true">
-    <symbol id="gonjong" viewBox="0 0 320 110">
-      <path d="M12 8C22 50 48 76 72 80C86 72 92 52 96 30C102 54 114 76 130 80C146 70 154 36 160 6C166 36 174 70 190 80C206 76 218 54 224 30C228 52 234 72 248 80C272 76 298 50 308 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M40 94H280" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M152 94l8-6 8 6-8 6Z" fill="currentColor"/>
+    <defs>
+      <g id="bloom">
+        <path d="M0 0C-14-14-16-36-6-50C-3-40 0-34 0-26C2-34 6-42 13-50C20-32 15-12 0 0Z"/>
+        <path d="M-5-5C-26-8-41-22-44-40C-31-38-19-31-12-20"/>
+        <path d="M5-5C25-9 38-22 41-38C29-37 18-31 11-20"/>
+        <path d="M0-6V-24M-4-8L-8-22M4-8L8-22"/>
+      </g>
+      <g id="bud">
+        <path d="M0 0C-9-8-9-21 0-30C9-21 9-8 0 0Z"/>
+        <path d="M0 0C-5-9-5-15-2-22M-7-6C-13-8-15-12-16-16M7-6C13-8 15-12 16-16"/>
+      </g>
+      <g id="leaf">
+        <path d="M0 0C8-16 26-24 42-22C38-6 20 6 0 0Z"/>
+        <path d="M0 0C12-6 24-13 34-18"/>
+      </g>
+    </defs>
+    <symbol id="floral" viewBox="0 0 240 280">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 14C28 62 62 92 118 104C150 111 176 109 204 96"/>
+        <path d="M34 62C26 104 30 146 12 196"/>
+        <path d="M76 88C86 124 108 152 142 178"/>
+        <path d="M20 30C44 28 66 20 84 4"/>
+        <use href="#bloom" transform="translate(204 96) rotate(72)"/>
+        <use href="#bloom" transform="translate(12 196) rotate(190) scale(.95)"/>
+        <use href="#bud" transform="translate(142 178) rotate(128)"/>
+        <use href="#bud" transform="translate(84 4) rotate(60) scale(.8)"/>
+        <use href="#leaf" transform="translate(112 102) rotate(-20) scale(.9)"/>
+        <use href="#leaf" transform="translate(58 78) rotate(90) scale(.85)"/>
+        <use href="#leaf" transform="translate(30 104) rotate(160) scale(.7)"/>
+        <use href="#leaf" transform="translate(98 122) rotate(10) scale(.65)"/>
+      </g>
     </symbol>
   </svg>
 
-  <div id="draft-banner" class="draft-banner" hidden>Preview. Tanggal dan tempat menyusul.</div>
+  <div id="draft-banner" class="draft-banner" hidden>Preview. Tanggal dan lokasi masih sementara.</div>
 
   <section id="cover" class="cover" aria-label="Sampul undangan">
-    <div class="cover-body">
-      <p class="kicker">The Wedding of</p>
-      <svg class="gonjong" aria-hidden="true"><use href="#gonjong"/></svg>
+    <div class="cover-body framed">
+      <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
+      <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
       <h1 class="names">
-        <span class="names-shimmer" data-key="couple.bride.nickname"></span>
+        <span data-key="couple.bride.nickname"></span>
         <span class="names-amp">&amp;</span>
-        <span class="names-shimmer" data-key="couple.groom.nickname"></span>
+        <span data-key="couple.groom.nickname"></span>
       </h1>
-      <p class="tagline" data-key="opening.tagline"></p>
-      <p class="cover-date" id="cover-date"></p>
+      <p class="cover-info" id="cover-date"></p>
+      <p class="cover-info" data-key="opening.place"></p>
       <div class="guest-card">
-        <p class="guest-label">Spesial untuk</p>
+        <p>Kepada Yth</p>
         <p class="guest-name" id="guest-name">Bapak/Ibu/Saudara/i</p>
       </div>
       <button id="open-invitation" class="btn btn-gold" type="button">Buka Undangan</button>
@@ -50,44 +77,42 @@
 
   <div class="page">
     <main id="content" tabindex="-1">
-      <section id="salam" class="section section-ivory">
+      <section id="salam" class="section section-maroon framed">
+        <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
         <p class="arabic arabic-lg" lang="ar" dir="rtl" data-key="opening.basmalah"></p>
         <p class="salam" data-key="opening.salam"></p>
         <p data-key="opening.intro"></p>
-        <div class="verse">
-          <p class="arabic" lang="ar" dir="rtl" data-key="opening.verse.arabic"></p>
-          <p data-key="opening.verse.translation"></p>
-          <p class="source" data-key="opening.verse.source"></p>
-        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="arabic" lang="ar" dir="rtl" data-key="opening.verse.arabic"></p>
+        <p data-key="opening.verse.translation"></p>
+        <p class="source" data-key="opening.verse.source"></p>
       </section>
 
-      <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
-
-      <section id="mempelai" class="section section-wine">
-        <p class="kicker">Kedua Mempelai</p>
-        <h2 data-key="couple.heading"></h2>
+      <section id="mempelai" class="section section-cream framed">
+        <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
+        <h2 class="script-title">Mempelai</h2>
+        <p class="tagline" data-key="opening.tagline"></p>
         <p data-key="couple.intro"></p>
         <article class="person" data-person="bride"></article>
-        <p class="culture-chip" data-key="couple.chip"></p>
+        <p class="couple-amp" aria-hidden="true">&amp;</p>
         <article class="person" data-person="groom"></article>
       </section>
 
-      <section id="acara" class="section section-ivory">
-        <p class="kicker kicker-wine">Save the Date</p>
-        <h2>Catat Tanggalnya</h2>
+      <section id="acara" class="section section-maroon framed">
+        <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
+        <h2 class="script-title">Save the Date</h2>
         <div id="countdown" class="countdown" role="timer" aria-label="Hitung mundur menuju acara" hidden></div>
         <div id="events" class="stack"></div>
       </section>
 
-      <section id="info" class="section section-emerald">
-        <p class="kicker" data-key="guestInfo.kicker"></p>
-        <h2 data-key="guestInfo.title"></h2>
+      <section id="info" class="section section-cream framed">
+        <h2 class="script-title" data-key="guestInfo.title"></h2>
         <ul id="guest-info" class="info-list"></ul>
       </section>
 
-      <section id="hadir" class="section section-ivory">
-        <p class="kicker kicker-wine">RSVP</p>
-        <h2>Bisa Hadir?</h2>
+      <section id="hadir" class="section section-maroon framed">
+        <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
+        <h2 class="script-title">Konfirmasi Kehadiran</h2>
         <p data-key="rsvp.intro"></p>
         <form id="rsvp-form" class="form">
           <label for="rsvp-name">Nama</label>
@@ -101,27 +126,27 @@
           <input id="rsvp-count" name="count" type="number" min="1" max="10" value="1" inputmode="numeric">
           <label for="rsvp-message">Ucapan dan doa (opsional)</label>
           <textarea id="rsvp-message" name="message" rows="3" maxlength="300"></textarea>
-          <button class="btn btn-wine" type="submit">Kirim lewat WhatsApp</button>
+          <button class="btn btn-gold" type="submit">Kirim lewat WhatsApp</button>
           <p id="rsvp-note" class="form-note" role="status" hidden></p>
         </form>
       </section>
 
-      <section id="hadiah" class="section section-wine">
-        <p class="kicker">Tanda Kasih</p>
-        <h2>Amplop Digital</h2>
+      <section id="hadiah" class="section section-cream framed">
+        <h2 class="script-title">Tanda Kasih</h2>
         <p data-key="gifts.intro"></p>
         <div id="gifts" class="stack"></div>
       </section>
 
-      <section id="doa" class="section section-ivory section-closing">
-        <p class="kicker kicker-wine">Doa Kami</p>
+      <section id="doa" class="section section-maroon framed section-closing">
+        <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
+        <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
         <p class="arabic" lang="ar" dir="rtl" data-key="closing.prayer.arabic"></p>
         <p data-key="closing.prayer.translation"></p>
         <p class="source" data-key="closing.prayer.source"></p>
+        <div class="divider" aria-hidden="true"></div>
         <p data-key="closing.thanks"></p>
         <p class="salam" data-key="closing.salam"></p>
-        <svg class="gonjong gonjong-wine" aria-hidden="true"><use href="#gonjong"/></svg>
-        <p class="signature" data-key="closing.signature"></p>
+        <p data-key="closing.signature"></p>
         <p class="names names-closing">
           <span data-key="couple.bride.nickname"></span>
           <span class="names-amp">&amp;</span>
@@ -151,7 +176,7 @@
   </div>
 
   <template id="person-template">
-    <div class="person-arch" aria-hidden="true"><span class="person-initial"></span></div>
+    <div class="person-oval" aria-hidden="true"><span class="person-initial"></span></div>
     <p class="person-role"></p>
     <h3 class="person-name"></h3>
     <p class="person-title" hidden></p>
@@ -170,7 +195,7 @@
         <dt class="event-address-label">Alamat</dt><dd class="event-address"></dd>
       </dl>
       <div class="btn-row">
-        <a class="btn btn-wine event-map" target="_blank" rel="noopener">Buka Peta</a>
+        <a class="btn btn-maroon event-map" target="_blank" rel="noopener">Buka Peta</a>
         <a class="btn btn-outline event-calendar" target="_blank" rel="noopener">Simpan Tanggal</a>
       </div>
     </article>
@@ -181,7 +206,7 @@
       <p class="gift-bank"></p>
       <p class="gift-number"></p>
       <p class="gift-holder"></p>
-      <button class="btn btn-gold gift-copy" type="button">Salin Nomor</button>
+      <button class="btn btn-maroon gift-copy" type="button">Salin Nomor</button>
     </article>
   </template>
 
