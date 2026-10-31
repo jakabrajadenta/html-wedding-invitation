@@ -57,6 +57,24 @@ function renderPeople(couple) {
   });
 }
 
+function renderStory(chapters) {
+  // Bagian cerita baru tampil setelah isinya ada.
+  if (!chapters.length) {
+    document.getElementById('cerita').hidden = true;
+    return;
+  }
+  const nodes = chapters.map(({ title, text }) => {
+    const item = document.createElement('li');
+    const heading = document.createElement('h3');
+    const body = document.createElement('p');
+    heading.textContent = title;
+    body.textContent = text;
+    item.append(heading, body);
+    return item;
+  });
+  document.getElementById('story').replaceChildren(...nodes);
+}
+
 function formatDate(iso, timeZone) {
   return new Intl.DateTimeFormat('id-ID', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone,
@@ -316,6 +334,7 @@ async function init() {
 
     await bindText();
     renderPeople(data.couple);
+    renderStory(data.story.chapters);
     renderEvents(data.events, data.schedule, title);
     renderGuestInfo(data.guestInfo.items);
     renderGifts(data.gifts.accounts);

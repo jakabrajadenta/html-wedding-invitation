@@ -14,6 +14,7 @@ Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
 - Selama `start` pada `events` kosong, jadwal tampil sebagai "Menyusul" dan hitung mundur disembunyikan. Format isinya `2027-09-22T09:00:00+07:00`.
 - `end` boleh kosong. Isi `endLabel` dengan `selesai` untuk menampilkan "11.00 WIB – selesai".
 - Bagian amplop digital baru tampil setelah `gifts.accounts` diisi.
+- Bagian cerita baru tampil setelah `story.chapters` diisi.
 - Setelah isi final, ubah `DRAFT_MODE=true` menjadi `DRAFT_MODE=false` di `config/public.env` untuk menghilangkan label contoh.
 
 ## Musik
@@ -28,7 +29,7 @@ Hanya gunakan audio yang lisensinya mengizinkan file disebarkan di repo publik.
 
 ## Link untuk tamu
 
-Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `acara`, `info`, `hadir`, `hadiah`, `doa`):
+Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `cerita`, `acara`, `info`, `hadir`, `hadiah`, `doa`):
 
 ```text
 https://jakabrajadenta.github.io/html-wedding-invitation/?to=Bapak%20Ahmad

@@ -42,6 +42,29 @@
       "origin": ""
     }
   },
+  "story": {
+    "title": "Cerita Kami",
+    "intro": "Sebuah cerita singkat, dituturkan oleh Elsha.",
+    "chapters": [
+      {
+        "title": "Berawal dari Senyum",
+        "text": "Di antara hari-hari biasa di kantor, sebuah senyum sampai ke hatinya. Ia menyimpannya diam-diam, dan menitipkan harapan lewat banyak teman."
+      },
+      {
+        "title": "Sebuah Paket Yogurt",
+        "text": "Lalu tibalah hari ia memberanikan diri. Siapa sangka, sebuah paket yogurt menjadi awal cerita kami. Sapa berbalas pesan, pesan berbalas temu."
+      },
+      {
+        "title": "Saling Menerima",
+        "text": "Dalam setiap cerita, kami belajar mengenal dan menerima. Dua perjalanan yang berbeda perlahan menemukan satu arah yang sama."
+      },
+      {
+        "title": "Waktu Terbaik",
+        "text": "Tiga bulan ternyata cukup untuk meyakinkan kami melangkah ke arah yang lebih baik, dalam ikatan pernikahan. Hari itu datang lebih cepat dari yang kami rencanakan, karena waktu terbaik sering tiba tanpa kami duga."
+      }
+    ],
+    "signature": "Elsha"
+  },
   "events": [
     {
       "name": "Akad Nikah",

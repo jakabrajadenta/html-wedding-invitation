@@ -123,7 +123,7 @@ h1, h2, h3, p { margin: 0; }
 
 .names-amp { font-size: .8em; }
 
-.names-closing { margin-top: 6px; font-size: 3.6rem; }
+.names-closing { margin-top: 6px; color: var(--maroon); font-size: 3.6rem; }
 
 .cover-info { font-size: 1.25rem; line-height: 1.4; }
 
@@ -230,6 +230,7 @@ textarea:focus-visible {
 
 .arabic-lg { color: var(--gold); font-size: 2rem; line-height: 1.6; }
 .salam { color: var(--gold); font-size: 1.125rem; }
+.section-cream .salam, .section-cream .source { color: var(--gold-deep); }
 
 .source { color: var(--gold); font-size: .9375rem; }
 
@@ -282,6 +283,47 @@ textarea:focus-visible {
   line-height: 1;
 }
 
+/* Cerita */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 8px 0 0;
+  padding: 0 0 0 22px;
+  border-left: 1px solid var(--gold);
+  list-style: none;
+  text-align: left;
+}
+
+.story li { position: relative; }
+
+.story li::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -27px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.story h3 {
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.story-signature {
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
 /* Acara */
 .countdown {
   display: grid;
@@ -306,6 +348,9 @@ textarea:focus-visible {
   font-weight: 400;
   line-height: 1.2;
 }
+
+.section-cream .countdown-unit { border-color: var(--gold-deep); color: var(--ink); }
+.section-cream .countdown-unit strong { color: var(--maroon); }
 
 .stack { display: flex; flex-direction: column; gap: 16px; }
 
@@ -391,8 +436,8 @@ textarea:focus-visible {
   min-height: 44px;
 }
 
-.form .choice input { width: 22px; height: 22px; flex: none; accent-color: var(--gold); }
-.form-note { color: var(--gold); }
+.form .choice input { width: 22px; height: 22px; flex: none; accent-color: var(--maroon); }
+.form-note { color: var(--maroon); }
 
 /* Hadiah */
 .card-gift { text-align: center; }

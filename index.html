@@ -98,19 +98,27 @@
         <article class="person" data-person="groom"></article>
       </section>
 
-      <section id="acara" class="section section-maroon framed">
+      <section id="cerita" class="section section-maroon framed">
+        <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
+        <h2 class="script-title" data-key="story.title"></h2>
+        <p data-key="story.intro"></p>
+        <ol id="story" class="story"></ol>
+        <p class="story-signature" data-key="story.signature"></p>
+      </section>
+
+      <section id="acara" class="section section-cream framed">
         <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
         <h2 class="script-title">Save the Date</h2>
         <div id="countdown" class="countdown" role="timer" aria-label="Hitung mundur menuju acara" hidden></div>
         <div id="events" class="stack"></div>
       </section>
 
-      <section id="info" class="section section-cream framed">
+      <section id="info" class="section section-maroon framed">
         <h2 class="script-title" data-key="guestInfo.title"></h2>
         <ul id="guest-info" class="info-list"></ul>
       </section>
 
-      <section id="hadir" class="section section-maroon framed">
+      <section id="hadir" class="section section-cream framed">
         <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
         <h2 class="script-title">Konfirmasi Kehadiran</h2>
         <p data-key="rsvp.intro"></p>
@@ -126,18 +134,18 @@
           <input id="rsvp-count" name="count" type="number" min="1" max="10" value="1" inputmode="numeric">
           <label for="rsvp-message">Ucapan dan doa (opsional)</label>
           <textarea id="rsvp-message" name="message" rows="3" maxlength="300"></textarea>
-          <button class="btn btn-gold" type="submit">Kirim lewat WhatsApp</button>
+          <button class="btn btn-maroon" type="submit">Kirim lewat WhatsApp</button>
           <p id="rsvp-note" class="form-note" role="status" hidden></p>
         </form>
       </section>
 
-      <section id="hadiah" class="section section-cream framed">
+      <section id="hadiah" class="section section-maroon framed">
         <h2 class="script-title">Tanda Kasih</h2>
         <p data-key="gifts.intro"></p>
         <div id="gifts" class="stack"></div>
       </section>
 
-      <section id="doa" class="section section-maroon framed section-closing">
+      <section id="doa" class="section section-cream framed section-closing">
         <svg class="floral floral-top" aria-hidden="true"><use href="#floral"/></svg>
         <svg class="floral floral-bottom" aria-hidden="true"><use href="#floral"/></svg>
         <p class="arabic" lang="ar" dir="rtl" data-key="closing.prayer.arabic"></p>
