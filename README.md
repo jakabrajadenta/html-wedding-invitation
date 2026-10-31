@@ -4,7 +4,23 @@ Undangan pernikahan digital berbentuk website satu halaman (*single page*). Tamu
 
 **Link undangan:** https://jakabrajadenta.github.io/html-wedding-invitation/
 
-> Status: tahap awal. `index.html` dan struktur di bawah ini belum dibuat. Link aktif setelah `index.html` ada di branch `master` dan GitHub Pages diaktifkan.
+> Status: template tema Minang syar'i sudah tersedia dengan isi contoh. Link aktif setelah perubahan di-push ke branch `master` dan GitHub Pages diaktifkan.
+
+Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
+
+## Mengubah isi undangan
+
+- Ubah isi undangan di `data/wedding.json`.
+- Setelah isi final, ubah `DRAFT_MODE=true` menjadi `DRAFT_MODE=false` di `config/public.env` untuk menghilangkan label contoh.
+
+## Link untuk tamu
+
+Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `acara`, `adab`, `hadir`, `hadiah`, `doa`):
+
+```text
+https://jakabrajadenta.github.io/html-wedding-invitation/?to=Bapak%20Ahmad
+https://jakabrajadenta.github.io/html-wedding-invitation/?to=Bapak%20Ahmad#acara
+```
 
 ## Konsep
 
@@ -17,7 +33,7 @@ Undangan pernikahan digital berbentuk website satu halaman (*single page*). Tamu
 ```text
 .
 ├── index.html            # Satu-satunya halaman
-├── assets/               # CSS, JavaScript, gambar, musik, font
+├── assets/               # CSS dan JavaScript
 ├── data/                 # Konten undangan (JSON)
 │   └── wedding.json
 └── config/
@@ -35,7 +51,7 @@ Data diambil dengan `fetch` berdasarkan file dan key. Contoh `data/wedding.json`
 }
 ```
 
-Contoh fungsi pembacanya:
+Fungsi pembacanya ada di `assets/js/app.js`:
 
 ```js
 // getJson('data/wedding.json', 'event.venue') -> "Nama Gedung"
@@ -44,7 +60,7 @@ async function getJson(file, key) {
   return key.split('.').reduce((value, part) => value?.[part], data);
 }
 
-// getEnv('config/public.env', 'MUSIC_ENABLED') -> "true"
+// getEnv('config/public.env', 'DRAFT_MODE') -> "true"
 async function getEnv(file, key) {
   const text = await (await fetch(file)).text();
   const line = text.split(/\r?\n/).find((row) => row.startsWith(`${key}=`));

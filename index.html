@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#17110c">
+  <title>Undangan Walimatul 'Urs</title>
+  <meta name="description" content="Undangan pernikahan bernuansa Minangkabau.">
+  <meta property="og:title" content="Undangan Walimatul 'Urs">
+  <meta property="og:description" content="Dengan memohon rahmat Allah, kami mengundang Anda untuk hadir dan mendoakan.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317110c'/%3E%3Cpath d='M16 5 25 27H7z' fill='%23d9a93e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="is-locked">
+  <svg width="0" height="0" class="svg-defs" aria-hidden="true">
+    <symbol id="rumah-gadang" viewBox="0 0 320 150">
+      <path class="rg-roof" d="M30 12C38 50 60 66 72 68C84 62 90 46 95 28C100 46 112 64 128 66C142 60 154 34 160 6C166 34 178 60 192 66C208 64 220 46 225 28C230 46 236 62 248 68C260 66 282 50 290 12C292 50 280 88 262 96H58C40 88 28 50 30 12Z"/>
+      <path class="rg-wall" d="M56 96H264L256 128H64Z"/>
+      <path class="rg-line" d="M62 106H258M66 118H254M92 96V128M124 96V128M160 96V128M196 96V128M228 96V128"/>
+      <path class="rg-line" d="M76 128V144M108 128V144M144 128V144M176 128V144M212 128V144M244 128V144M48 144H272"/>
+    </symbol>
+  </svg>
+
+  <div id="draft-banner" class="draft-banner" hidden>Contoh tampilan. Isi undangan belum final.</div>
+
+  <section id="cover" class="cover" aria-label="Sampul undangan">
+    <div class="band"></div>
+    <div class="cover-body">
+      <p class="eyebrow">Walimatul 'Urs</p>
+      <svg class="rg rg-gold" role="img" aria-label="Rumah Gadang"><use href="#rumah-gadang"/></svg>
+      <h1 class="couple-names">
+        <span data-key="couple.bride.nickname"></span>
+        <span class="amp">&amp;</span>
+        <span data-key="couple.groom.nickname"></span>
+      </h1>
+      <p class="cover-date" id="cover-date"></p>
+      <div class="guest-card">
+        <p>Kepada Yth.</p>
+        <p class="guest-name" id="guest-name">Bapak/Ibu/Saudara/i</p>
+      </div>
+      <button id="open-invitation" class="btn btn-gold" type="button">Buka Undangan</button>
+      <p id="load-error" class="load-error" role="alert" hidden></p>
+      <noscript><p class="load-error">Undangan ini membutuhkan JavaScript agar isinya dapat ditampilkan.</p></noscript>
+    </div>
+    <div class="band"></div>
+  </section>
+
+  <div class="page">
+    <main id="content" tabindex="-1">
+      <section id="salam" class="section section-paper">
+        <p class="arabic arabic-lg" lang="ar" dir="rtl" data-key="opening.basmalah"></p>
+        <p class="salam" data-key="opening.salam"></p>
+        <p data-key="opening.intro"></p>
+        <div class="verse">
+          <p class="arabic" lang="ar" dir="rtl" data-key="opening.verse.arabic"></p>
+          <p data-key="opening.verse.translation"></p>
+          <p class="verse-source" data-key="opening.verse.source"></p>
+        </div>
+        <p class="proverb" data-key="opening.proverb"></p>
+      </section>
+
+      <div class="band"></div>
+
+      <section id="mempelai" class="section section-dark">
+        <p class="eyebrow">Kedua Mempelai</p>
+        <h2>Anak Daro &amp; Marapulai</h2>
+        <div class="monogram" aria-hidden="true" data-key="couple.monogram"></div>
+        <article class="person" data-person="bride"></article>
+        <p class="amp amp-block" aria-hidden="true">&amp;</p>
+        <article class="person" data-person="groom"></article>
+      </section>
+
+      <div class="band"></div>
+
+      <section id="acara" class="section section-paper">
+        <p class="eyebrow eyebrow-red">Waktu &amp; Tempat</p>
+        <h2>Rangkaian Acara</h2>
+        <div id="countdown" class="countdown" role="timer" aria-label="Hitung mundur menuju acara"></div>
+        <div id="events" class="stack"></div>
+      </section>
+
+      <section id="adab" class="section section-red">
+        <p class="eyebrow">Adab Walimah</p>
+        <h2 data-key="etiquette.title"></h2>
+        <p data-key="etiquette.intro"></p>
+        <ul id="etiquette" class="check-list"></ul>
+      </section>
+
+      <section id="hadir" class="section section-paper">
+        <p class="eyebrow eyebrow-red">Konfirmasi</p>
+        <h2>Kehadiran &amp; Doa</h2>
+        <p data-key="rsvp.intro"></p>
+        <form id="rsvp-form" class="form">
+          <label for="rsvp-name">Nama</label>
+          <input id="rsvp-name" name="name" type="text" maxlength="60" autocomplete="name" required>
+          <fieldset>
+            <legend>Apakah Anda dapat hadir?</legend>
+            <label class="choice"><input type="radio" name="attend" value="Insya Allah hadir" required> Insya Allah hadir</label>
+            <label class="choice"><input type="radio" name="attend" value="Mohon maaf, belum dapat hadir"> Mohon maaf, belum dapat hadir</label>
+          </fieldset>
+          <label for="rsvp-count">Jumlah orang</label>
+          <input id="rsvp-count" name="count" type="number" min="1" max="10" value="1" inputmode="numeric">
+          <label for="rsvp-message">Doa untuk mempelai (opsional)</label>
+          <textarea id="rsvp-message" name="message" rows="3" maxlength="300"></textarea>
+          <button class="btn btn-red" type="submit">Kirim lewat WhatsApp</button>
+          <p id="rsvp-note" class="form-note" role="status" hidden></p>
+        </form>
+      </section>
+
+      <section id="hadiah" class="section section-dark">
+        <p class="eyebrow">Tanda Kasih</p>
+        <h2>Amplop Digital</h2>
+        <p data-key="gifts.intro"></p>
+        <div id="gifts" class="stack"></div>
+      </section>
+
+      <div class="band"></div>
+
+      <section id="doa" class="section section-paper section-closing">
+        <h2>Doa untuk Pengantin</h2>
+        <p class="arabic" lang="ar" dir="rtl" data-key="closing.prayer.arabic"></p>
+        <p data-key="closing.prayer.translation"></p>
+        <p class="verse-source" data-key="closing.prayer.source"></p>
+        <p data-key="closing.thanks"></p>
+        <p class="salam" data-key="closing.salam"></p>
+        <svg class="rg rg-dark" role="img" aria-label="Rumah Gadang"><use href="#rumah-gadang"/></svg>
+        <p class="signature" data-key="closing.signature"></p>
+        <p class="couple-names couple-names-sm">
+          <span data-key="couple.bride.nickname"></span>
+          <span class="amp">&amp;</span>
+          <span data-key="couple.groom.nickname"></span>
+        </p>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navigasi undangan">
+      <a href="#salam">Salam</a>
+      <a href="#mempelai">Mempelai</a>
+      <a href="#acara">Acara</a>
+      <a href="#hadir">Hadir</a>
+      <a href="#hadiah">Hadiah</a>
+    </nav>
+  </div>
+
+  <template id="person-template">
+    <p class="person-role"></p>
+    <h3 class="person-name"></h3>
+    <p class="person-title" hidden></p>
+    <p class="person-parents"></p>
+    <p class="person-origin" hidden></p>
+  </template>
+
+  <template id="event-template">
+    <article class="card">
+      <h3 class="event-name"></h3>
+      <p class="event-note" hidden></p>
+      <dl class="event-info">
+        <dt>Hari</dt><dd class="event-date"></dd>
+        <dt>Waktu</dt><dd class="event-time"></dd>
+        <dt>Tempat</dt><dd class="event-venue"></dd>
+        <dt>Alamat</dt><dd class="event-address"></dd>
+      </dl>
+      <div class="btn-row">
+        <a class="btn btn-red event-map" target="_blank" rel="noopener">Buka Peta</a>
+        <a class="btn btn-outline event-calendar" target="_blank" rel="noopener">Simpan Tanggal</a>
+      </div>
+    </article>
+  </template>
+
+  <template id="gift-template">
+    <article class="card card-gift">
+      <p class="gift-bank"></p>
+      <p class="gift-number"></p>
+      <p class="gift-holder"></p>
+      <button class="btn btn-gold gift-copy" type="button">Salin Nomor</button>
+    </article>
+  </template>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
