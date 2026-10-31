@@ -1,6 +1,7 @@
 const DATA_FILE = 'data/wedding.json';
 const ENV_FILE = 'config/public.env';
 const GUEST_NAME_MAX = 60;
+const PENDING_TEXT = 'Menyusul';
 
 const fileCache = new Map();
 
@@ -45,6 +46,7 @@ function renderPeople(couple) {
   document.querySelectorAll('[data-person]').forEach((container) => {
     const person = couple[container.dataset.person];
     const node = template.content.cloneNode(true);
+    node.querySelector('.person-initial').textContent = person.nickname.charAt(0);
     node.querySelector('.person-role').textContent = person.role;
     node.querySelector('.person-name').textContent = person.fullName;
     setOptionalText(node.querySelector('.person-title'), person.title);
@@ -53,6 +55,11 @@ function renderPeople(couple) {
     setOptionalText(node.querySelector('.person-origin'), person.origin);
     container.replaceChildren(node);
   });
+}
+
+function renderMarquee(title, chip) {
+  const phrase = `${title} ✦ ${chip} ✦ `;
+  document.getElementById('marquee').textContent = phrase.repeat(8);
 }
 
 function formatDate(iso, timeZone) {
@@ -86,15 +93,26 @@ function renderEvents(events, schedule, title) {
   const { timeZone, timeLabel } = schedule;
   const nodes = events.map((event) => {
     const node = template.content.cloneNode(true);
+    const hasSchedule = Boolean(event.start && event.end);
+    const map = node.querySelector('.event-map');
+    const calendar = node.querySelector('.event-calendar');
+
     node.querySelector('.event-name').textContent = event.name;
     setOptionalText(node.querySelector('.event-note'), event.note);
-    node.querySelector('.event-date').textContent = formatDate(event.start, timeZone);
-    node.querySelector('.event-time').textContent =
-      `${formatTime(event.start, timeZone)} – ${formatTime(event.end, timeZone)} ${timeLabel}`;
-    node.querySelector('.event-venue').textContent = event.venue;
-    node.querySelector('.event-address').textContent = event.address;
-    node.querySelector('.event-map').href = event.mapsUrl;
-    node.querySelector('.event-calendar').href = calendarUrl(event, title);
+    node.querySelector('.event-date').textContent =
+      hasSchedule ? formatDate(event.start, timeZone) : PENDING_TEXT;
+    node.querySelector('.event-time').textContent = hasSchedule
+      ? `${formatTime(event.start, timeZone)} – ${formatTime(event.end, timeZone)} ${timeLabel}`
+      : PENDING_TEXT;
+    node.querySelector('.event-venue').textContent = event.venue || PENDING_TEXT;
+    setOptionalText(node.querySelector('.event-address'), event.address);
+    node.querySelector('.event-address-label').hidden = !event.address;
+
+    if (event.mapsUrl) map.href = event.mapsUrl;
+    else map.hidden = true;
+    if (hasSchedule) calendar.href = calendarUrl(event, title);
+    else calendar.hidden = true;
+    node.querySelector('.btn-row').hidden = !event.mapsUrl && !hasSchedule;
     return node;
   });
   document.getElementById('events').replaceChildren(...nodes);
@@ -112,13 +130,14 @@ function startCountdown(targetIso) {
     container.append(unit);
     return value;
   });
+  container.hidden = false;
 
   const tick = () => {
     let remaining = Math.floor((target - Date.now()) / 1000);
     if (remaining <= 0) {
       const done = document.createElement('p');
       done.className = 'countdown-done';
-      done.textContent = "Alhamdulillah, acara telah berlangsung.";
+      done.textContent = 'Alhamdulillah, acara telah berlangsung.';
       container.replaceChildren(done);
       clearInterval(timer);
       return;
@@ -132,16 +151,23 @@ function startCountdown(targetIso) {
   tick();
 }
 
-function renderEtiquette(items) {
+function renderGuestInfo(items) {
   const nodes = items.map((text) => {
     const item = document.createElement('li');
     item.textContent = text;
     return item;
   });
-  document.getElementById('etiquette').replaceChildren(...nodes);
+  document.getElementById('guest-info').replaceChildren(...nodes);
 }
 
 function renderGifts(accounts) {
+  // Bagian hadiah dan menunya baru tampil setelah rekening diisi.
+  if (!accounts.length) {
+    document.getElementById('hadiah').hidden = true;
+    document.querySelector('.bottom-nav a[href="#hadiah"]').hidden = true;
+    return;
+  }
+
   const template = document.getElementById('gift-template');
   const nodes = accounts.map((account) => {
     const node = template.content.cloneNode(true);
@@ -177,12 +203,12 @@ function setupRsvp(whatsapp, title, guest) {
     }
     const { name, attend, count, message } = form.elements;
     const lines = [
-      `Assalamu'alaikum. Konfirmasi ${title}`,
+      `Assalamu'alaikum. Konfirmasi undangan ${title}`,
       `Nama: ${name.value.trim()}`,
       `Kehadiran: ${attend.value}`,
       `Jumlah: ${count.value} orang`,
     ];
-    if (message.value.trim()) lines.push(`Doa: ${message.value.trim()}`);
+    if (message.value.trim()) lines.push(`Ucapan: ${message.value.trim()}`);
     const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
     window.open(url, '_blank', 'noopener');
   });
@@ -233,7 +259,7 @@ function openInvitation({ focus = true } = {}) {
   document.body.classList.remove('is-locked');
   document.getElementById('cover').classList.add('is-open');
   if (focus) document.getElementById('content').focus({ preventScroll: true });
-  setTimeout(() => { document.getElementById('cover').hidden = true; }, 650);
+  setTimeout(() => { document.getElementById('cover').hidden = true; }, 900);
 }
 
 function setupReveal() {
@@ -254,7 +280,7 @@ function setupReveal() {
 
 function setupNavHighlight() {
   if (!('IntersectionObserver' in window)) return;
-  const links = [...document.querySelectorAll('.bottom-nav a')];
+  const links = [...document.querySelectorAll('.bottom-nav a:not([hidden])')];
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -280,17 +306,19 @@ async function init() {
     const title = `${data.couple.bride.nickname} & ${data.couple.groom.nickname}`;
     const firstEvent = data.events[0];
 
-    document.title = `Undangan Walimatul 'Urs ${title}`;
-    document.getElementById('cover-date').textContent =
-      formatDate(firstEvent.start, data.schedule.timeZone);
+    document.title = `The Wedding of ${title}`;
+    document.getElementById('cover-date').textContent = firstEvent.start
+      ? formatDate(firstEvent.start, data.schedule.timeZone)
+      : 'Tanggal segera diumumkan';
 
     await bindText();
     renderPeople(data.couple);
+    renderMarquee(title, data.couple.chip);
     renderEvents(data.events, data.schedule, title);
-    renderEtiquette(data.etiquette.items);
+    renderGuestInfo(data.guestInfo.items);
     renderGifts(data.gifts.accounts);
     setupRsvp(data.rsvp.whatsapp, title, guest);
-    startCountdown(firstEvent.start);
+    if (firstEvent.start) startCountdown(firstEvent.start);
     const playMusic = setupMusic(data.music?.src);
     setupReveal();
     setupNavHighlight();

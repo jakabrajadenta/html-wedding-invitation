@@ -8,82 +8,77 @@
     "credit": "Musik: Nocturne Op. 9 No. 2, F. Chopin, dimainkan oleh Frank Lévy (Musopen, domain publik)"
   },
   "opening": {
+    "tagline": "Minang × Sunda, satu cerita",
     "basmalah": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "salam": "Assalamu'alaikum warahmatullahi wabarakatuh",
-    "intro": "Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta'ala, kami bermaksud menyelenggarakan walimah pernikahan putra-putri kami dan mengundang Bapak/Ibu/Saudara/i untuk hadir serta mendoakan.",
+    "intro": "Dengan penuh syukur kepada Allah Subhanahu wa Ta'ala, kami ingin berbagi kabar bahagia dan mengundang Anda untuk hadir serta mendoakan hari pernikahan kami.",
     "verse": {
       "arabic": "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ",
       "translation": "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antara kamu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
       "source": "QS. Ar-Rum: 21"
-    },
-    "proverb": "Adat basandi syarak, syarak basandi Kitabullah"
+    }
   },
   "couple": {
-    "monogram": "A & M",
+    "heading": "Dua Budaya, Satu Cerita",
+    "intro": "Dari Ranah Minang dan Tanah Pasundan, kini melangkah bersama.",
+    "chip": "Minang × Sunda",
     "bride": {
-      "role": "Anak Daro",
-      "nickname": "Nama Anak Daro",
-      "fullName": "Nama Lengkap Anak Daro",
+      "role": "The Bride",
+      "nickname": "Elsha",
+      "fullName": "Elsha Ivonila Sefriza",
       "title": "",
-      "childOrder": "Putri pertama",
-      "father": "Nama Ayah",
-      "mother": "Nama Ibu",
-      "origin": "Suku dan asal nagari"
+      "childOrder": "Putri keempat",
+      "father": "Arzinal",
+      "mother": "Efiwarti",
+      "origin": ""
     },
     "groom": {
-      "role": "Marapulai",
-      "nickname": "Nama Marapulai",
-      "fullName": "Nama Lengkap Marapulai",
-      "title": "Gelar adat",
+      "role": "The Groom",
+      "nickname": "Jaka",
+      "fullName": "Jaka Brajadenta",
+      "title": "",
       "childOrder": "Putra pertama",
-      "father": "Nama Ayah",
-      "mother": "Nama Ibu",
-      "origin": "Suku dan asal nagari"
+      "father": "Asep Dudi Prihadi",
+      "mother": "Camelia Indria Sari",
+      "origin": ""
     }
   },
   "events": [
     {
       "name": "Akad Nikah",
       "note": "",
-      "start": "2027-01-09T08:00:00+07:00",
-      "end": "2027-01-09T10:00:00+07:00",
-      "venue": "Nama Masjid",
-      "address": "Alamat lengkap, Kota Padang, Sumatera Barat",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kota+Padang"
+      "start": "",
+      "end": "",
+      "venue": "",
+      "address": "",
+      "mapsUrl": ""
     },
     {
-      "name": "Baralek (Walimatul 'Urs)",
-      "note": "Tempat tamu pria dan wanita dipisah.",
-      "start": "2027-01-09T11:00:00+07:00",
-      "end": "2027-01-09T15:00:00+07:00",
-      "venue": "Nama Gedung atau Rumah",
-      "address": "Alamat lengkap, Kota Padang, Sumatera Barat",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kota+Padang"
+      "name": "Resepsi",
+      "note": "",
+      "start": "",
+      "end": "",
+      "venue": "",
+      "address": "",
+      "mapsUrl": ""
     }
   ],
-  "etiquette": {
-    "title": "Agar Walimah Penuh Keberkahan",
-    "intro": "Tanpa mengurangi rasa hormat, kami mengajak para tamu untuk bersama-sama menjaga adab berikut:",
+  "guestInfo": {
+    "kicker": "Info Tamu",
+    "title": "Biar Makin Berkesan",
     "items": [
-      "Mengenakan pakaian yang sopan dan menutup aurat.",
-      "Menempati area tamu pria dan wanita yang telah disediakan.",
-      "Tidak mengambil atau menyebarkan foto mempelai tanpa izin.",
-      "Berhenti sejenak dari acara ketika waktu shalat tiba."
+      "Datang tepat waktu supaya tidak ketinggalan momen pentingnya.",
+      "Berpakaian rapi dan sopan sesuai suasana acara.",
+      "Isi RSVP supaya kami bisa menyiapkan tempat dan jamuan untuk Anda."
     ]
   },
   "rsvp": {
     "whatsapp": "",
-    "intro": "Mohon konfirmasi kehadiran Anda agar kami dapat mempersiapkan jamuan dengan baik."
+    "intro": "Kabari kami ya, supaya tempat dan jamuan untuk Anda bisa kami siapkan dengan baik."
   },
   "gifts": {
     "intro": "Doa Anda adalah hadiah terbaik bagi kami. Bagi yang ingin memberikan tanda kasih, dapat melalui rekening berikut.",
-    "accounts": [
-      {
-        "bank": "Nama Bank",
-        "number": "0000000000",
-        "holder": "Nama Pemilik Rekening"
-      }
-    ]
+    "accounts": []
   },
   "closing": {
     "prayer": {
@@ -91,8 +86,8 @@
       "translation": "Semoga Allah memberkahimu, melimpahkan keberkahan kepadamu, dan mengumpulkan kalian berdua dalam kebaikan.",
       "source": "HR. Abu Dawud dan At-Tirmidzi"
     },
-    "thanks": "Merupakan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa. Atas kehadiran dan doanya, kami ucapkan jazakumullahu khairan.",
+    "thanks": "Kehadiran dan doa Anda akan membuat hari kami semakin lengkap. Terima kasih banyak, sampai jumpa di hari bahagia kami!",
     "salam": "Wassalamu'alaikum warahmatullahi wabarakatuh",
-    "signature": "Kami yang berbahagia,"
+    "signature": "Dengan penuh cinta,"
   }
 }

@@ -4,13 +4,15 @@ Undangan pernikahan digital berbentuk website satu halaman (*single page*). Tamu
 
 **Link undangan:** https://jakabrajadenta.github.io/html-wedding-invitation/
 
-> Status: template tema Minang syar'i sudah tersedia dengan isi contoh. Link aktif setelah perubahan di-push ke branch `master` dan GitHub Pages diaktifkan.
+> Status: desain modern perpaduan Minang dan Sunda sudah tersedia. Tanggal, tempat, dan kontak masih menyusul.
 
 Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
 
 ## Mengubah isi undangan
 
 - Ubah isi undangan di `data/wedding.json`.
+- Selama `start` dan `end` pada `events` kosong, jadwal tampil sebagai "Menyusul" dan hitung mundur disembunyikan. Format isinya `2027-01-09T08:00:00+07:00`.
+- Bagian amplop digital baru tampil setelah `gifts.accounts` diisi.
 - Setelah isi final, ubah `DRAFT_MODE=true` menjadi `DRAFT_MODE=false` di `config/public.env` untuk menghilangkan label contoh.
 
 ## Musik
@@ -25,7 +27,7 @@ Hanya gunakan audio yang lisensinya mengizinkan file disebarkan di repo publik.
 
 ## Link untuk tamu
 
-Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `acara`, `adab`, `hadir`, `hadiah`, `doa`):
+Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `acara`, `info`, `hadir`, `hadiah`, `doa`):
 
 ```text
 https://jakabrajadenta.github.io/html-wedding-invitation/?to=Bapak%20Ahmad
