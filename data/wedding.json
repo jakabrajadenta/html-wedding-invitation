@@ -3,6 +3,10 @@
     "timeZone": "Asia/Jakarta",
     "timeLabel": "WIB"
   },
+  "music": {
+    "src": "assets/audio/chopin-nocturne-op9-no2.mp3",
+    "credit": "Musik: Nocturne Op. 9 No. 2, F. Chopin, dimainkan oleh Frank Lévy (Musopen, domain publik)"
+  },
   "opening": {
     "basmalah": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     "salam": "Assalamu'alaikum warahmatullahi wabarakatuh",

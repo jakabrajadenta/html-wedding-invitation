@@ -13,6 +13,16 @@ Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
 - Ubah isi undangan di `data/wedding.json`.
 - Setelah isi final, ubah `DRAFT_MODE=true` menjadi `DRAFT_MODE=false` di `config/public.env` untuk menghilangkan label contoh.
 
+## Musik
+
+Musik mulai saat tamu menekan **Buka Undangan** dan dapat dimatikan lewat tombol di layar. Untuk mengganti lagu, ubah `music.src` dan `music.credit` di `data/wedding.json`. Kosongkan `music.src` untuk menghilangkan musik.
+
+Hanya gunakan audio yang lisensinya mengizinkan file disebarkan di repo publik.
+
+- **Lagu saat ini:** Nocturne Op. 9 No. 2 karya Frédéric Chopin, dimainkan oleh Frank Lévy.
+- **Sumber:** [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nocturne_in_E_flat_major,_Op._9_no._2.mp3), berasal dari Musopen.
+- **Lisensi:** domain publik.
+
 ## Link untuk tamu
 
 Tambahkan `?to=` untuk menampilkan nama tamu di sampul, dan tambahkan `#` untuk langsung menuju bagian tertentu (`salam`, `mempelai`, `acara`, `adab`, `hadir`, `hadiah`, `doa`):
@@ -33,7 +43,7 @@ https://jakabrajadenta.github.io/html-wedding-invitation/?to=Bapak%20Ahmad#acara
 ```text
 .
 ├── index.html            # Satu-satunya halaman
-├── assets/               # CSS dan JavaScript
+├── assets/               # CSS, JavaScript, dan audio
 ├── data/                 # Konten undangan (JSON)
 │   └── wedding.json
 └── config/

@@ -188,6 +188,42 @@ function setupRsvp(whatsapp, title, guest) {
   });
 }
 
+function setupMusic(src) {
+  const audio = document.getElementById('music');
+  const toggle = document.getElementById('music-toggle');
+  if (!src) return () => {};
+
+  const play = () => audio.play().catch((error) => console.warn('Musik tidak dapat diputar:', error));
+  const setState = (isPlaying) => {
+    toggle.setAttribute('aria-pressed', String(isPlaying));
+    toggle.setAttribute('aria-label', isPlaying ? 'Matikan musik' : 'Nyalakan musik');
+  };
+
+  audio.src = src;
+  audio.volume = 0.6;
+  audio.addEventListener('play', () => setState(true));
+  audio.addEventListener('pause', () => setState(false));
+  audio.addEventListener('error', () => { toggle.hidden = true; });
+  toggle.addEventListener('click', () => {
+    if (audio.paused) play();
+    else audio.pause();
+  });
+
+  // Berhenti saat tab ditinggalkan, lanjut lagi hanya jika sebelumnya menyala.
+  let resumeOnReturn = false;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      resumeOnReturn = !audio.paused;
+      audio.pause();
+    } else if (resumeOnReturn) {
+      play();
+    }
+  });
+
+  toggle.hidden = false;
+  return play;
+}
+
 function getGuestName() {
   const name = new URLSearchParams(window.location.search).get('to');
   return name ? name.trim().slice(0, GUEST_NAME_MAX) : '';
@@ -255,6 +291,7 @@ async function init() {
     renderGifts(data.gifts.accounts);
     setupRsvp(data.rsvp.whatsapp, title, guest);
     startCountdown(firstEvent.start);
+    const playMusic = setupMusic(data.music?.src);
     setupReveal();
     setupNavHighlight();
 
@@ -262,7 +299,10 @@ async function init() {
     document.getElementById('draft-banner').hidden = draft !== 'true';
 
     openButton.disabled = false;
-    openButton.addEventListener('click', () => openInvitation());
+    openButton.addEventListener('click', () => {
+      playMusic(); // Browser hanya mengizinkan suara setelah tamu menekan tombol.
+      openInvitation();
+    });
 
     // Link yang menuju bagian tertentu (mis. #acara) langsung melewati sampul.
     const section = document.getElementById(window.location.hash.slice(1));

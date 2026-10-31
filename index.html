@@ -135,8 +135,19 @@
           <span class="amp">&amp;</span>
           <span data-key="couple.groom.nickname"></span>
         </p>
+        <p class="music-credit" data-key="music.credit"></p>
       </section>
     </main>
+
+    <audio id="music" loop preload="none"></audio>
+    <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false" aria-label="Nyalakan musik" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="6.5" cy="18" r="2.5" fill="currentColor"/>
+        <circle cx="16.5" cy="16" r="2.5" fill="currentColor"/>
+        <path class="music-slash" d="M3 3l18 18" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
 
     <nav class="bottom-nav" aria-label="Navigasi undangan">
       <a href="#salam">Salam</a>
