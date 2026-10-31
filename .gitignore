@@ -1,149 +1,360 @@
-# Logs
-logs
+# =============================================================================
+# Undangan pernikahan online: situs statis (index.html) via GitHub Pages.
+# Repo ini PUBLIK dan semua file yang di-track ikut terpublikasi.
+#
+# Sengaja TIDAK di-ignore (dibutuhkan situs saat runtime):
+#   index.html, assets/, data/*.json, config/public.env
+# Jangan menambahkan pola global seperti *.json atau *.env ke file ini.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Rahasia & environment lokal
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+*.secret.*
+secrets.json
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Data pribadi yang tidak boleh terbit (mis. daftar tamu lengkap, no. telepon)
+/private/
+*.private.json
+
+# -----------------------------------------------------------------------------
+# AI: konfigurasi, memori, dan data asisten
+# -----------------------------------------------------------------------------
+# Claude
+.claude/
+.claude-plugin/
+.superpowers/
+CLAUDE.md
+CLAUDE.local.md
+docs/superpowers/
+
+# MCP
+.mcp.json
+mcp.json
+
+# OpenAI Codex
+.codex/
+AGENTS.md
+AGENTS.override.md
+
+# Google Gemini / Antigravity
+.gemini/
+GEMINI.md
+.agent/
+.agents/
+
+# GitHub Copilot
+.copilot/
+.github/copilot-instructions.md
+.github/instructions/
+.github/prompts/
+.github/chatmodes/
+.github/agents/
+
+# Cursor
+.cursor/
+.cursorrules
+.cursorignore
+.cursorindexingignore
+
+# Windsurf / Codeium
+.windsurf/
+.windsurfrules
+.codeium/
+
+# Agen & asisten lain
+.aider*
+.amazonq/
+.cline/
+.clinerules
+.clineignore
+.continue/
+.junie/
+.kiro/
+.qodo/
+.roo/
+.roomodes
+.rooignore
+.serena/
+.specstory/
+.tabnine/
+.tabby/
+.trae/
+.zencoder/
+
+# Data AI generik
+.ai/
+.prompts/
+ai-config/
+ai-data/
+
+# Tooling API
+.postman/
+postman/
+
+# -----------------------------------------------------------------------------
+# IDE & editor
+# -----------------------------------------------------------------------------
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code & turunannya
+.vscode/
+.vscode-test/
+.history/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+.loadpath
+.factorypath
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# Editor lain
+.fleet/
+.zed/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.netrwhist
+\#*\#
+.\#*
+
+# -----------------------------------------------------------------------------
+# Sistem operasi & sinkronisasi
+# -----------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+.directory
+.Trash-*
+.fuse_hidden*
+
+# OneDrive & file sementara Office
+~$*
+*.tmp
+*.temp
+*.bak
+
+# -----------------------------------------------------------------------------
+# Node.js / JavaScript
+# -----------------------------------------------------------------------------
+node_modules/
+jspm_packages/
+bower_components/
+web_modules/
+package.json
+package-lock.json
+npm-shrinkwrap.json
+yarn.lock
+pnpm-lock.yaml
+pnpm-workspace.yaml
+bun.lock
+bun.lockb
+.npm
+.npmrc
+.nvmrc
+.node-version
+.node_repl_history
+.pnpm-store
+.pnp.*
+.yarn/
+.yarn-integrity
+.yarnrc*
+*.tgz
+*.tsbuildinfo
+tsconfig*.json
+jsconfig*.json
+.eslintcache
+.stylelintcache
+.lock-wscript
+.grunt
+.tern-port
+coverage/
+*.lcov
+.nyc_output/
+lib-cov/
+
+# -----------------------------------------------------------------------------
+# Framework frontend & static site generator
+# -----------------------------------------------------------------------------
+.next/
+next.config.*
+next-env.d.ts
+.nuxt/
+nuxt.config.*
+.output/
+.svelte-kit/
+svelte.config.*
+.astro/
+astro.config.*
+.angular/
+angular.json
+.vite/
+vite.config.*
+webpack.config.*
+rollup.config.*
+tailwind.config.*
+postcss.config.*
+.parcel-cache/
+.cache/
+.temp/
+.turbo/
+.docusaurus/
+.vuepress/dist/
+**/.vitepress/dist/
+**/.vitepress/cache/
+.fusebox/
+.serverless/
+.dynamodb/
+.firebase/
+.vercel/
+.netlify/
+.wrangler/
+dist/
+build/
+
+# -----------------------------------------------------------------------------
+# Java / Kotlin
+# -----------------------------------------------------------------------------
+target/
+.gradle/
+.mvn/
+.kotlin/
+pom.xml
+build.gradle
+build.gradle.kts
+settings.gradle
+settings.gradle.kts
+gradle/
+gradlew
+gradlew.bat
+mvnw
+mvnw.cmd
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# -----------------------------------------------------------------------------
+# Bahasa & framework backend lain
+# -----------------------------------------------------------------------------
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+requirements*.txt
+pyproject.toml
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# PHP
+/vendor/
+composer.json
+composer.lock
+.phpunit.result.cache
+
+# Ruby / Jekyll
+.bundle/
+Gemfile
+Gemfile.lock
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Go
+go.mod
+go.sum
+*.test
+
+# Rust
+Cargo.toml
+Cargo.lock
+
+# .NET
+/bin/
+/obj/
+*.csproj
+*.sln
+
+# Flutter / Dart
+.dart_tool/
+pubspec.yaml
+pubspec.lock
+
+# Docker
+Dockerfile
+docker-compose*.yml
+compose*.yml
+.dockerignore
+
+# -----------------------------------------------------------------------------
+# Log & runtime
+# -----------------------------------------------------------------------------
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-# Runtime data
-pids
+pids/
 *.pid
-*.seed
 *.pid.lock
-
-# Directory for instrumented libs generated by jscoverage/JSCover
-lib-cov
-
-# Coverage directory used by tools like istanbul
-coverage
-*.lcov
-
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional stylelint cache
-.stylelintcache
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variable files
-.env
-.env.*
-!.env.example
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-out
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-.output
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
-
-# vuepress build output
-.vuepress/dist
-
-# vuepress v2.x temp directory
-.temp
-
-# Sveltekit cache directory
-.svelte-kit/
-
-# vitepress build output
-**/.vitepress/dist
-
-# vitepress cache directory
-**/.vitepress/cache
-
-# Docusaurus cache and generated files
-.docusaurus
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# Firebase cache directory
-.firebase/
-
-# TernJS port file
-.tern-port
-
-# Stores Visual Studio Code versions used for testing Visual Studio Code extensions
-.vscode-test
-
-# pnpm
-.pnpm-store
-
-# yarn v3
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# Vite files
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
-.vite/
-
-# Astro generated types
-.astro/
-
-# Turbo Repo
-.turbo
+*.seed
