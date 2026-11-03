@@ -48,8 +48,8 @@ function renderPeople(couple) {
     const node = template.content.cloneNode(true);
     node.querySelector('.person-initial').textContent = person.nickname.charAt(0);
     node.querySelector('.person-role').textContent = person.role;
-    node.querySelector('.person-name').textContent = person.fullName;
-    setOptionalText(node.querySelector('.person-title'), person.title);
+    node.querySelector('.person-name').textContent =
+      person.title ? `${person.fullName}, ${person.title}` : person.fullName;
     node.querySelector('.person-parents').textContent =
       `${person.childOrder} dari Bapak ${person.father} dan Ibu ${person.mother}`;
     setOptionalText(node.querySelector('.person-origin'), person.origin);
