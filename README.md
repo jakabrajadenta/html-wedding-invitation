@@ -8,6 +8,17 @@ Undangan pernikahan digital berbentuk website satu halaman (*single page*). Tamu
 
 Tampilan dibuat selebar ponsel, termasuk saat dibuka di desktop.
 
+## Versi 2 (penuh animasi)
+
+**Link V2:** https://jakabrajadenta.github.io/html-wedding-invitation/v2/
+
+Tampilan alternatif bertema songket Minang (cokelat gelap, merah, emas) dengan banyak animasi: pintu sampul terbuka, kelopak bunga berjatuhan, rumah gadang, garis waktu cerita, dan photobooth swafoto berbingkai. Semua file V2 ada di folder `v2/` dan tidak mengubah versi pertama.
+
+- Isi undangan tetap dibaca dari `data/wedding.json`, jadi perubahan data langsung berlaku di kedua versi.
+- Musik V2 diatur di konstanta `MUSIC` pada `v2/assets/js/app.js`: "Canon in D Major" oleh Kevin MacLeod ([incompetech.com](https://incompetech.com)), lisensi [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Lisensi ini mewajibkan kredit, dan kreditnya sudah tampil di bagian bawah halaman.
+- `?to=` dan `#bagian` berlaku juga, misalnya `v2/?to=Bapak%20Ahmad#acara`. Bagian tambahannya adalah `beranda` dan `photobooth`.
+- Photobooth butuh HTTPS (GitHub Pages) atau `localhost`. Foto hanya diproses di perangkat tamu.
+
 ## Mengubah isi undangan
 
 - Ubah isi undangan di `data/wedding.json`.
