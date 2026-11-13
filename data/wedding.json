@@ -111,6 +111,16 @@
         "bank": "GoPay / ShopeePay / DANA",
         "number": "082214687574",
         "holder": "Jaka Brajadenta"
+      },
+      {
+        "bank": "Bank Mandiri",
+        "number": "1240016107295",
+        "holder": "Elsha Ivonila Sefriza"
+      },
+      {
+        "bank": "GoPay",
+        "number": "087897201740",
+        "holder": "Elsha Ivonila Sefriza"
       }
     ]
   },
