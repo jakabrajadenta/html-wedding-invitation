@@ -422,16 +422,33 @@ function startPetals() {
       spin: random(-0.02, 0.02),
       angle: random(0, Math.PI * 2),
       color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: sparkle ? random(0.5, 1) : random(0.45, 0.85),
+      alpha: sparkle ? random(0.4, 0.8) : random(0.3, 0.6),
+      fade: 1,
     };
   };
-  const items = Array.from({ length: 26 }, () => make(true));
+  const items = Array.from({ length: 20 }, () => make(true));
+
+  // Kelopak memudar saat melewati panel teks agar tulisan dan angka tetap terbaca.
+  const READABLE = '.text-plate, .gift-plate, .gift-bank, .guest-card, .chapter, .event-card, .form, .verse-card, .info-list li, .countdown-unit, .booth-stage, .section-title, .section-lead';
+  let zones = [];
+  const refreshZones = () => {
+    const offset = canvas.getBoundingClientRect().left;
+    zones = [...document.querySelectorAll(READABLE)]
+      .map((element) => element.getBoundingClientRect())
+      .filter((rect) => rect.bottom > 0 && rect.top < height && rect.width > 0)
+      .map((rect) => ({ left: rect.left - offset - 8, right: rect.right - offset + 8, top: rect.top - 8, bottom: rect.bottom + 8 }));
+  };
+  const inZone = (p) => zones.some((z) => p.x > z.left && p.x < z.right && p.y > z.top && p.y < z.bottom);
+  window.addEventListener('scroll', refreshZones, { passive: true });
+  window.addEventListener('resize', refreshZones);
+  setInterval(refreshZones, 700);
+  refreshZones();
 
   const drawPetal = (p) => {
     ctx.save();
     ctx.translate(p.x, p.y);
     ctx.rotate(p.angle);
-    ctx.globalAlpha = p.alpha;
+    ctx.globalAlpha = p.alpha * p.fade;
     if (p.sparkle) {
       ctx.fillStyle = '#f6dc9f';
       ctx.shadowColor = '#e2b866';
@@ -461,6 +478,7 @@ function startPetals() {
       p.y += p.speed;
       p.x += Math.sin(p.phase) * p.drift * 0.6;
       p.angle += p.spin;
+      p.fade += ((inZone(p) ? 0 : 1) - p.fade) * 0.15;
       if (p.y > height + 20) items[index] = make(false);
       drawPetal(p);
     });
